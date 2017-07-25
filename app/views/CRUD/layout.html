@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>#{get 'title' /}</title>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link href="@@{'/public/crud/stylesheets/bootstrap.min.css'}" rel="stylesheet">
+	<link href="@@{'/public/crud/stylesheets/admin.css'}" rel="stylesheet">
+	#{get 'moreStyles' /}
+	
+</head>
+
+<body>
+	#{include '/CRUD/nav.html'/}
+	#{include '/CRUD/sidebar.html'/}
+	
+	#{if request.actionMethod != 'index'}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" >			
+		#{crud.navigation /}
+	</div>
+	#{/if}
+	
+	#{if flash.success}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2" >	
+		<div class="row">
+			<div class="col-lg-12">
+		        <div class="alert alert-success alert-dismissible" role="alert" style="margin-top: 20px; margin-bottom:0px;">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			        	<span aria-hidden="true">&times;</span>
+			        </button>
+		            ${flash.success}
+		       </div>
+	       </div>
+       </div>
+    </div>
+	#{/if}
+	
+	#{if flash.error || error}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+	    <div class="row">	
+	    	<div class="col-lg-12">
+		        <div class="alert alert-danger alert-dismissible" role="alert" style="margin-top: 20px; margin-bottom:0px;">
+			         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			         	<span aria-hidden="true">&times;</span>
+			         </button>
+			         ${error ?: flash.error}
+		        </div>
+	        </div>
+        </div>
+    </div>
+	#{/if}
+
+	#{doLayout /}
+
+	<script src="@@{'/public/crud/javascripts/jquery.min.js'}"></script>
+	<script src="@@{'/public/crud/javascripts/bootstrap.min.js'}"></script>
+	<script src="@@{'/public/crud/javascripts/bootstrap-datepicker.min.js'}"></script>
+	#{get 'moreScripts' /}
+	<script>
+		!function ($) {
+		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+		        $(this).find('em:first').toggleClass("glyphicon-minus");      
+		    }); 
+		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>	
+</body>
+
+</html>
+

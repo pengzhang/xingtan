@@ -1,0 +1,86 @@
+#{extends 'main.html' /}
+#{set title:'Home' /} 
+
+<div id="banner" style="margin-bottom: -0.5rem;">
+	<img src="/public/images/banner@2x.png" style="height: 8.75rem; width: 100%;"/>
+</div>
+
+
+<div style="background-color: #fff;">
+	<nav class="nav justified">
+		<a>
+			<span>— 艺人</span>
+			<span class="avatar avatar-sm" style="margin:0 0.25rem;">
+				<img src="/public/images/camera@2x.png" alt="">
+			</span>
+			<span>展示  —</span>
+		</a>
+	</nav>
+</div>
+#{list anchors,  as:'anchor'}
+<div id="yr_pic" style="position: relative;margin-bottom: -0.5rem; ">
+	<img src="${anchor.photo}" style="height: 8.75rem; width: 100%;"/>
+	<div class="yr_name" style="position: absolute; top:0.5rem; left: 0.5rem;">
+		<img src="/public/images/banner_icon@2x.png" style="height: 1rem; margin-bottom: 0rem;"/>
+		<span style="color: #fff; font-size: 14px; top: -0.3rem;">${anchor.nickname}</span>
+	</div>
+</div>
+
+<div style="background-color: #fff;">
+	<nav class="nav justified">
+		<a>
+			<span class="muted"><i class="icon icon-cloud"></i> 直播平台:</span>
+			<span class="strong">${anchor.company}</span>
+		</a>
+		<a>
+			<span class="muted"><i class="icon icon-user"></i> 经纪人:</span>
+			<span class="strong">${anchor.broker}</span>
+		</a>
+	</nav>
+</div>
+#{/list}
+
+
+<div id="nav">
+	<nav class="nav affix dock-bottom justified">
+		<a id="yren_btn" href="/">
+			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
+				<img src="/public/images/yren02@2x.png" alt="">
+			</span>
+			<span>艺人</span>
+		</a>
+		<a id="xka_btn">
+			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
+				<img src="/public/images/xka02@2x.png" alt="">
+			</span>
+			<span>星卡</span>
+		</a>
+		<a id="jliu_btn"> 
+			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
+				<img src="/public/images/jliu02@2x.png" alt="">
+			</span>
+			<span>交流</span>
+		</a>
+	</nav>
+</div>
+
+<a class="btn primary outline hidden message" 
+	data-display data-target-dismiss="true" 
+	data-auto-hide="5000" data-target="!new" 
+	data-animate="scale-suggest" 
+	data-content="暂未开放，敬请期待！" 
+	data-placement="bottom-center" 
+	data-template="<div class='layer has-margin has-padding success'>{0}</div>">
+</a>
+#{set 'moreScripts'}
+<script>
+	Zepto(function($) {
+		$("#xka_btn").click(function(){
+			$(".message").click();
+		});
+		$("#jliu_btn").click(function(){
+			$(".message").click();
+		});
+	})
+</script>
+#{/set}
