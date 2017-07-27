@@ -64,6 +64,23 @@ public class Anchor extends BaseModel implements Serializable {
 	@Exclude
 	@Column(columnDefinition="bigint comment '经纪人ID'")
 	public String b_id;
+	
+	public Anchor() {
+		super();
+	}
+
+	public Anchor(String avatar, String nickname, String sex, String province, String city, String country, String openid,
+			String unionid) {
+		super();
+		this.avatar = avatar;
+		this.nickname = nickname;
+		this.sex = sex;
+		this.province = province;
+		this.city = city;
+		this.country = country;
+		this.openid = openid;
+		this.unionid = unionid;
+	}
 
 	@Override
 	public String toString() {

@@ -4,8 +4,10 @@ import java.util.List;
 
 import models.Anchor;
 import play.mvc.Controller;
+import play.mvc.With;
 import plugins.hcommon.router.Get;
 
+@With(ActionIntercepter.class)
 public class Application extends Controller {
 
 	@Get("/anchor")

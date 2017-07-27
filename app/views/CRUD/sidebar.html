@@ -6,11 +6,20 @@
 	</form>
 	<ul class="nav menu">
 		#{crud.types}
-				#{if nav=='admin'&& (
-				    type.name=='Admin' 
+				#{if nav=='admin' && (
+				type.name=='AdminWechatKeys' 
 				)}
 					<li #{if type.name==menu}class="active"#{/if}>
-						<a href="${type.listAction}">
+						<a href="
+						#{if
+							type.name=='AdminWechatKeys' 
+						 }
+							@{AdminWechatKeys.show(1)}
+						#{/if}
+						#{else}
+							${type.listAction}
+						#{/else}
+						">
 							<span class="glyphicon glyphicon-dashboard"></span> &{type.name}
 						</a>
 					</li>
