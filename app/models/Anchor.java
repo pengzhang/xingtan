@@ -62,8 +62,8 @@ public class Anchor extends BaseModel implements Serializable {
 	public String broker;
 	
 	@Exclude
-	@Column(columnDefinition="bigint comment '经纪人ID'")
-	public String b_id;
+	@Column(columnDefinition="bigint default 0 comment '经纪人ID'")
+	public long b_id;
 	
 	public Anchor() {
 		super();

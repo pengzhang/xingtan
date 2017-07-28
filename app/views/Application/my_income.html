@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Home' /} 
+
+
+#{include './my_header.html' /}
+
+<div class="list">
+  <a class="item" style="background-color: #F9F9F9; padding-left: 1.5rem;padding-right: 2rem;">
+  	<div class="title"><strong>2017年4月</strong> </div>
+    <div class="title"><strong class="pull-right">￥700.32元</strong></div>
+  </a>
+</div>
+
+#{include './footer.html' /}
+
+#{set 'moreStyles'}
+<style>
+.profile-haeder {position: relative; overflow: hidden; min-height: 8rem}
+.profile-haeder > .back {top: -2rem; left: -2rem; right: -2rem; bottom: -2rem; background-position: center; background-size: cover}
+.profile-haeder > .front {background: rgba(0,0,0,.1); text-align: center; padding: 1.5rem}
+</style>
+#{/set}

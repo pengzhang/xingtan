@@ -40,47 +40,6 @@
 </div>
 #{/list}
 
+#{include './footer.html' /}
 
-<div id="nav">
-	<nav class="nav affix dock-bottom justified">
-		<a id="yren_btn" href="/">
-			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
-				<img src="/public/images/yren02@2x.png" alt="">
-			</span>
-			<span>艺人</span>
-		</a>
-		<a id="xka_btn">
-			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
-				<img src="/public/images/xka02@2x.png" alt="">
-			</span>
-			<span>星卡</span>
-		</a>
-		<a id="jliu_btn"> 
-			<span class="avatar avatar-sm" style="margin: 0 0.25rem;">
-				<img src="/public/images/jliu02@2x.png" alt="">
-			</span>
-			<span>交流</span>
-		</a>
-	</nav>
-</div>
 
-<a class="btn primary outline hidden message" 
-	data-display data-target-dismiss="true" 
-	data-auto-hide="5000" data-target="!new" 
-	data-animate="scale-suggest" 
-	data-content="暂未开放，敬请期待！" 
-	data-placement="bottom-center" 
-	data-template="<div class='layer has-margin has-padding success'>{0}</div>">
-</a>
-#{set 'moreScripts'}
-<script>
-	Zepto(function($) {
-		$("#xka_btn").click(function(){
-			$(".message").click();
-		});
-		$("#jliu_btn").click(function(){
-			$(".message").click();
-		});
-	})
-</script>
-#{/set}

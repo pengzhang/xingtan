@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'Home' /} 
+
+#{include './my_header.html' /}
+
+<div class="list">
+	#{list anchors, as:'anchor'}
+	  <a class="item with-avatar" style="background-color: #F9F9F9; padding-left: 1.5rem;padding-right: 2rem;">
+	    <div class="avatar circle"><img src="${anchor.photo}" alt=""></div>
+	    <div class="title">${anchor.nickname}</div>
+	    <div class="title"><strong class="pull-right">加入于 ${anchor.createDate.format('yyyy-MM')}</strong> </div>
+	  </a>
+	#{/list}
+</div>
+
+#{include './footer.html' /}
+
+#{set 'moreStyles'}
+<style>
+.profile-haeder {position: relative; overflow: hidden; min-height: 8rem}
+.profile-haeder > .back {top: -2rem; left: -2rem; right: -2rem; bottom: -2rem; background-position: center; background-size: cover}
+.profile-haeder > .front {background: rgba(0,0,0,.1); text-align: center; padding: 1.5rem}
+</style>
+#{/set}
