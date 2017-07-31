@@ -1,16 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'Home' /} 
 
+
 #{include './my_header.html' /}
 
 <div class="list">
-	#{list anchors, as:'anchor'}
-	  <a class="item with-avatar" style="background-color: #F9F9F9; padding-left: 1.5rem;padding-right: 2rem;">
-	    <span class="avatar circle"><img src="${anchor.photo}" alt=""></span>
-	    <span class="title">${anchor.nickname}</span>
-	    <span class="title"><strong class="pull-right">加入于 ${anchor.createDate.format('yyyy-MM')}</strong> </span>
-	  </a>
-	#{/list}
+  <a class="item" style="background-color: #F9F9F9; padding-left: 1.5rem;padding-right: 2rem;">
+  	<span class="title">开发中 </span>
+  </a>
 </div>
 
 #{set 'moreStyles'}

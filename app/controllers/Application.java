@@ -34,10 +34,9 @@ public class Application extends Controller {
 		render(anchor);
 	}
 	
-	@Get("/anchor/all")
-    public static void anchorAll() {
-		List<Anchor> anchors = Anchor.findAll();
-        renderJSON(anchors);
+	@Get("/my_assist")
+    public static void my_assist() {
+        render();
     }
 
 }
