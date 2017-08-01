@@ -1,8 +1,13 @@
 package controllers;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import models.Anchor;
+import play.libs.Codec;
+import play.libs.Crypto;
+import play.libs.WS;
 import play.mvc.Controller;
 import play.mvc.With;
 import plugins.hcommon.router.Get;
@@ -34,9 +39,28 @@ public class Application extends Controller {
 		render(anchor);
 	}
 	
+	@Get("/langma")
+	public static void langma(){
+		String redirect_url = "http://xt.hm55.cn/my_assist";
+		String appid="jmCguJZedFLjPahF";
+		try {
+			redirect_url = URLEncoder.encode(redirect_url, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String url = "http://link.pangaobox.com/oauth?redirect_uri="+redirect_url+"&appid="+appid;
+		redirect(url);
+	}
+	
 	@Get("/my_assist")
-    public static void my_assist() {
-        render();
+    public static void my_assist(String code) {
+		String appid="jmCguJZedFLjPahF";
+		String appsercet="ktxzPfifzHZS104ZM36fbUKdiCX09LXW";
+		String time = System.currentTimeMillis()+"";
+		String sign = Codec.hexMD5(appid+code+time+appsercet);
+		String url= "http://link.pangaobox.com/oauth/info?appid="+appid+"&code="+code+"&time="+time+"&sign="+sign;
+        renderJSON(WS.url(url).get().getJson());
     }
 
 }
