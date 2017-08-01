@@ -60,7 +60,7 @@ public class Application extends Controller {
 		String time = System.currentTimeMillis()+"";
 		String sign = Codec.hexMD5(appid+code+time+appsercet);
 		String url= "http://link.pangaobox.com/oauth/info?appid="+appid+"&code="+code+"&time="+time+"&sign="+sign;
-        renderJSON(WS.url(url).get().getJson());
+        renderText("json:"+WS.url(url).get().getJson()+",url:"+url);
     }
 
 }
