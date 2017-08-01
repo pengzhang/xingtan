@@ -2,9 +2,9 @@
   <div class="red dock blur-lg back" style="background-image: url(http://zui.sexy/m/doc/img/img2.jpg)"></div>
   <div class="front dock text-white">
     <div class="avatar avatar-xl circle space-sm">
-      <img src="http://zui.sexy/m/doc/img/avatar.png" alt="">
+      <img src="${session.get('avatar')}" alt="">
     </div>
-    <h4 class="lead text-shadow-black">Catouse</h4>
+    <h4 class="lead text-shadow-black">ID:${session.get('uid')} ${session.get('nickname')}</h4>
   </div>
 </div>
 
