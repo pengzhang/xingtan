@@ -85,6 +85,10 @@ b_id=经纪人ID
 recommendId=朗玛推荐ID
 userId=朗玛用户ID
 active=激活状态
-
+bankCode=银行卡号
+bankName=银行名称
+realName=真实姓名
+phone=手机号码
+idCode=身份证号
 AdminWechatKeys=微信秘钥管理
 WechatKey=微信秘钥
