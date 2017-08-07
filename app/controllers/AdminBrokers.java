@@ -2,12 +2,12 @@ package controllers;
 
 import annotation.hcommon.For;
 import annotation.hcommon.Login;
-import models.Anchor;
+import models.Broker;
 import play.mvc.Before;
 import play.mvc.With;
 
 @Login
-@For(Anchor.class)
+@For(Broker.class)
 @With(ActionIntercepter.class)
 public class AdminBrokers extends CRUD {
 

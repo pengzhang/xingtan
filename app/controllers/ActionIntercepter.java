@@ -6,7 +6,7 @@ import java.net.URLEncoder;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 
-import models.Anchor;
+import models.Broker;
 import models.WechatKey;
 import play.Logger;
 import play.cache.Cache;
@@ -51,7 +51,7 @@ public class ActionIntercepter extends Controller {
 				WechatAuthController.snsapi_userinfo(wxkey.wxpay_appid, returnUrl, state);
 			} else {
 				String openid = session.get("openid");
-				Anchor user = Anchor.find("openid=?", openid).first();
+				Broker user = Broker.find("openid=?", openid).first();
 				if (user == null) {
 					WechatAuthController.snsapi_userinfo(wxkey.wxpay_appid, returnUrl, state);
 				}
