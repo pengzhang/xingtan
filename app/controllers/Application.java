@@ -46,7 +46,7 @@ public class Application extends Controller {
 	
 	@Get("/langma")
 	public static void langma(){
-		String redirect_url = "http://xt.hm55.cn//langma/user";
+		String redirect_url = "http://xt.hm55.cn/langma/user";
 		String appid="jmCguJZedFLjPahF";
 		try {
 			redirect_url = URLEncoder.encode(redirect_url, "utf-8");
