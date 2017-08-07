@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.Gson;
 
-import models.Anchor;
+import models.Broker;
 import models.WechatKey;
 import play.Logger;
 import play.cache.Cache;
@@ -51,13 +51,13 @@ public class WechatAuthController extends Controller{
 		
 		//判断result,用户是否注册
 		Logger.info("wechat result:[%s]", Json.toJson(result));
-		Anchor user = Anchor.find("openid", result.get("openid")).first();
+		Broker user = Broker.find("openid", result.get("openid")).first();
 		String nickname = EmojiFilter.filterEmoji(result.get("nickname"));
 		Logger.info("wechat emoji nickname:%s", result.get("nickname"));
 		Logger.info("wechat filter emoji nickname:%s", nickname);
 		if(user == null){
 			Logger.info("new user nickname:%s, openid:%s", nickname, result.get("openid"));
-			user = new Anchor(result.get("headimgurl"), nickname, String.valueOf(result.get("sex")), result.get("province"), result.get("city"), result.get("country"), result.get("openid"), result.get("unionid"));
+			user = new Broker(result.get("headimgurl"), nickname, String.valueOf(result.get("sex")), result.get("province"), result.get("city"), result.get("country"), result.get("openid"), result.get("unionid"));
 			user = user.save();
 		}else{
 			Logger.info("update user nickname:%s, openid:%s", nickname, user.openid);

@@ -78,6 +78,6 @@ company=公司(直播平台)
 broker=经纪人
 openid=微信OpenID
 unionid=微信UnionID
-
+b_id=经纪人ID
 AdminWechatKeys=微信秘钥管理
 WechatKey=微信秘钥
