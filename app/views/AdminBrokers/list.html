@@ -13,7 +13,7 @@
 			
 			     #{crud.table fields:['id', 'nickname', 'avatar','username', 'email', 'openid', 'recommendId','userId','createDate','operation']}
 			        #{crud.custom 'avatar'}
-				        	<img src="${object.photo?object.photo:'/public/images/avatar.jpg'}" width="80" height="80">
+				        	<img src="${object.avatar?object.avatar:'/public/images/avatar.jpg'}" width="80" height="80">
 				     #{/crud.custom}
 			         #{crud.custom 'createDate'}
 				        	${object.createDate.format('yyyy-MM-dd HH:mm:ss')}
