@@ -25,7 +25,8 @@
 					</li>
 				#{/if}
 				#{if nav=='user' && (
-				    type.name=='AdminAnchors' 
+				    type.name=='AdminAnchors' ||
+				    type.name=='AdminBrokers' 
 				)}
 					<li #{if type.name==menu}class="active"#{/if}>
 						<a href="${type.listAction}">

@@ -9,12 +9,12 @@ import play.mvc.With;
 @Login
 @For(Anchor.class)
 @With(ActionIntercepter.class)
-public class AdminAnchors extends CRUD {
+public class AdminBrokers extends CRUD {
 
 	@Before
 	static void menus(){
 		renderArgs.put("nav", "user");
-		renderArgs.put("menu", "Anchors");
+		renderArgs.put("menu", "Brokers");
 		request.args.put("where", request.params.get("filter"));
 	}
 }

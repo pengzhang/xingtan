@@ -55,6 +55,9 @@ crud.help.range=在%d到%d之间
 AdminAnchors=主播管理
 Anchor=主播
 
+AdminBrokers=经纪人管理
+Broker=经纪人
+
 #Common
 id=ID
 status=状态
@@ -79,5 +82,8 @@ broker=经纪人
 openid=微信OpenID
 unionid=微信UnionID
 b_id=经纪人ID
+recommendId=朗玛推荐ID
+userId=朗玛用户ID
+
 AdminWechatKeys=微信秘钥管理
 WechatKey=微信秘钥
