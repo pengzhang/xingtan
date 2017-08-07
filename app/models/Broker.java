@@ -61,7 +61,7 @@ public class Broker extends BaseModel implements Serializable {
 	public String company;
 	
 	@Column(columnDefinition="tinyint default 0 comment '状态:0-未激活,1-已激活'")
-	public boolean status = false;
+	public boolean active = false;
 	
 	@Column(name="bankcode", columnDefinition="varchar(255) comment '朗玛银行卡号'")
 	public String bankCode;

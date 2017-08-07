@@ -84,6 +84,7 @@ unionid=微信UnionID
 b_id=经纪人ID
 recommendId=朗玛推荐ID
 userId=朗玛用户ID
+active=激活状态
 
 AdminWechatKeys=微信秘钥管理
 WechatKey=微信秘钥
