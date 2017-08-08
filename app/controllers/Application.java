@@ -7,10 +7,12 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
 import models.Anchor;
 import models.Broker;
 import models.LangMa;
+import play.Logger;
 import play.libs.Codec;
 import play.libs.WS;
 import play.mvc.Controller;
@@ -55,6 +57,7 @@ public class Application extends Controller {
 		}
 		
 		String url = "http://link.pangaobox.com/oauth?redirect_uri="+redirect_url+"&appid="+appid;
+		Logger.info("langma url:%s", url);
 		redirect(url);
 	}
 	
@@ -65,8 +68,12 @@ public class Application extends Controller {
 		String time = System.currentTimeMillis()+"";
 		String sign = Codec.hexMD5(appid+code+time+appsercet);
 		String url= "http://link.pangaobox.com/oauth/info?appid="+appid+"&code="+code+"&time="+time+"&sign="+sign;
-		LangMa langma = new Gson().fromJson(WS.url(url).get().getJson(), LangMa.class);
+		Logger.info("langma user url:%s", url);
+		JsonElement json = WS.url(url).get().getJson();
+		Logger.info("langma return json:%s", json.toString());
+		LangMa langma = new Gson().fromJson(json.getAsJsonObject().get("data"), LangMa.class);
 		String uid = session.get("uid");
+		Logger.info("langma user session uid:%s", uid);
 		Broker.langma(uid, langma);
         redirect("/my_assist");
 	}

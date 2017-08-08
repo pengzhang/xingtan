@@ -102,6 +102,7 @@ public class Broker extends BaseModel implements Serializable {
 	}
 	
 	public static void langma(String id, LangMa langma){
+		if(StringUtils.isEmpty(id)) return;
 		Broker broker = Broker.findById(Long.parseLong(id));
 		if(broker != null){
 			broker.bankCode = langma.bankCode;
@@ -116,6 +117,7 @@ public class Broker extends BaseModel implements Serializable {
 	}
 	
 	public static String getLangMaUser(String id) {
+		if(StringUtils.isEmpty(id)) return null;
 		Broker broker = Broker.findById(Long.parseLong(id));
 		if(broker != null){
 			if(StringUtils.isNotEmpty(broker.userId)){
