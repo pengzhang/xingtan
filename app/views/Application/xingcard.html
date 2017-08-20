@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'星卡' /} 
+
+#{list anchors,  as:'anchor'}
+<div id="yr_pic" style="position: relative; background-color: #fff;">
+	<div class="row">
+		<div class="cell-7">
+			<img src="${anchor.photo}" style="height: 8.75rem; width: 100%; margin-bottom: 0px;"/>
+		</div>
+		<div class="cell-5">
+			<div class="artice" style="margin-top: 1rem;">
+				<h4 >${anchor.nickname}</h4>
+				<p class="text-muted">${anchor.birthdate}</p>
+				<p class="text-muted">${anchor.bodyheight?'身高'+anchor.bodyheight+'cm':''}  ${anchor.bodyweight?'体重'+anchor.bodyweight+'KG':''}</p>
+				<p class="text-muted">${anchor.hobby}</p>
+				<p class="text-muted">${anchor.address}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="background-color: #fff;">
+	<nav class="nav justified">
+		<button type="button" class="btn info">购买</button>
+	</nav>
+</div>
+#{/list}
+
+#{include './footer.html' /}
+
+

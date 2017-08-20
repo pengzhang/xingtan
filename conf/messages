@@ -92,3 +92,9 @@ phone=手机号码
 idCode=身份证号
 AdminWechatKeys=微信秘钥管理
 WechatKey=微信秘钥
+address=地址
+hobby=爱好
+bodyweight=体重
+bodyheight=身高
+birthdate=出生日期
+

@@ -43,11 +43,26 @@ public class Anchor extends BaseModel implements Serializable {
 	@Column(columnDefinition="varchar(255) comment '省份'")
 	public String province;
 	
+	@Column(columnDefinition="varchar(255) comment '出生日期'")
+	public String birthdate;
+	
+	@Column(columnDefinition="varchar(255) comment '身高'")
+	public String bodyheight;
+	
+	@Column(columnDefinition="varchar(255) comment '体重'")
+	public String bodyweight;
+	
+	@Column(columnDefinition="varchar(255) comment '地址'")
+	public String address;
+	
 	@Column(columnDefinition="varchar(255) comment '城市'")
 	public String city;
 	
 	@Column(columnDefinition="varchar(255) comment '国家'")
 	public String country;
+	
+	@Column(columnDefinition="varchar(255) comment '爱好'")
+	public String hobby;
 	
 	@Column(columnDefinition="varchar(255) comment 'openid'")
 	public String openid;

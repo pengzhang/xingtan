@@ -30,6 +30,12 @@ public class Application extends Controller {
         render(anchors);
     }
 	
+	@Get("/xingcard")
+	public static void xingcard(){
+		List<Anchor> anchors = Anchor.find("order by createDate desc").fetch();
+        render(anchors);
+	}
+	
 	@Get("/my_anchor")
 	public static void my_anchor(Integer page, Integer size, Long b_id){
 		boolean anchor = true;
