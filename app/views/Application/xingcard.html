@@ -4,28 +4,25 @@
 #{list anchors,  as:'anchor'}
 <div id="yr_pic" style="position: relative; background-color: #fff;">
 	<div class="row">
-		<div class="cell-7">
-			<img src="${anchor.photo}" style="height: 8.75rem; width: 100%; margin-bottom: 0px;"/>
+		<div class="cell-7" style="padding: 0;">
+			<img src="${anchor.photo}" style="height: 10.25rem; width: 100%; margin-bottom: 0px; border: 1px solid #ccc;"/>
 		</div>
-		<div class="cell-5">
-			<div class="artice" style="margin-top: 1rem;">
+		<div class="cell-5" style="padding: 0;">
+			<div class="artice" style="margin-top: 1rem; margin-left: 0.5rem;">
 				<h4 >${anchor.nickname}</h4>
-				<p class="text-muted">${anchor.birthdate}</p>
-				<p class="text-muted">${anchor.bodyheight?'身高'+anchor.bodyheight+'cm':''}  ${anchor.bodyweight?'体重'+anchor.bodyweight+'KG':''}</p>
-				<p class="text-muted">${anchor.hobby}</p>
-				<p class="text-muted">${anchor.address}</p>
+				<p class="muted">${anchor.birthdate}</p>
+				<p class="muted">${anchor.bodyheight?'身高'+anchor.bodyheight+'cm':''}  ${anchor.bodyweight?'体重'+anchor.bodyweight+'KG':''}</p>
+				<p class="muted">${anchor.hobby}</p>
+				<p class="muted">${anchor.address}</p>
+				<button type="button" class="btn success pull-right" style="margin: 0.2rem ; width: 3rem;">购买</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div style="background-color: #fff;">
-	<nav class="nav justified">
-		<button type="button" class="btn info">购买</button>
-	</nav>
-</div>
+		
 #{/list}
 
-#{include './footer.html' /}
+#{include './xc_footer.html' /}
 
 
