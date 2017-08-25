@@ -72,7 +72,7 @@ public class Application extends Controller {
 	@Get("/my/xingcard")
 	public static void my_xingcard(){
 		long uid = Long.parseLong(session.get("uid"));
-		List<OrderItem> items = JPA.em().createQuery("select * from order_item item right join order_pay pay on pay.id = item.order_id where pay.user_id=:uid", OrderItem.class).setParameter("uid", uid).getResultList();
+		List<OrderItem> items = JPA.em().createQuery("select item from order_item item right join order_pay pay on pay.id = item.order_id where pay.user_id=:uid", OrderItem.class).setParameter("uid", uid).getResultList();
         render(items);
 	}
 	
