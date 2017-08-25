@@ -15,13 +15,15 @@
     </tr>
   </thead>
   <tbody>
+  #{list items, as:'item'}
     <tr>
-      <td><div class="avatar circle"><img src="http://zui.sexy/m/doc/img/avatar.png" alt=""></div></td>
-      <td>小马虎</td>
-      <td>1056</td>
-      <td>1056</td>
-      <td>2017-05-25</td>
+      <td><div class="avatar circle"><img src="${item.product_image}" alt=""></div></td>
+      <td>${item.product_name}</td>
+      <td>${item.quantity}</td>
+      <td>${item.product_total}</td>
+      <td>${item.createDate.format('yyyy-MM-dd')}</td>
     </tr>
+  #{/list}
   </tbody>
 </table>
 
