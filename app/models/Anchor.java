@@ -15,19 +15,24 @@ import play.data.validation.Password;
 @org.hibernate.annotations.Table(comment="主播管理", appliesTo = "anchor")
 public class Anchor extends BaseModel implements Serializable {
 
+	@Exclude
 	@Column(columnDefinition="varchar(100) comment '用户名'")
 	public String username;
 	
+	@Exclude
 	@Password
 	@Column(columnDefinition="varchar(100) comment '密码'")
 	public String password;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(100) comment '用户邮箱'")
 	public String email;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(30) comment '手机号'")
 	public String mobile;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(1000) comment '用户头像'")
 	public String avatar;
 	
@@ -37,9 +42,11 @@ public class Anchor extends BaseModel implements Serializable {
 	@Column(columnDefinition="varchar(255) comment '昵称'")
 	public String nickname;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '性别'")
 	public String sex;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '省份'")
 	public String province;
 	
@@ -55,18 +62,22 @@ public class Anchor extends BaseModel implements Serializable {
 	@Column(columnDefinition="varchar(255) comment '地址'")
 	public String address;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '城市'")
 	public String city;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '国家'")
 	public String country;
 	
 	@Column(columnDefinition="varchar(255) comment '爱好'")
 	public String hobby;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment 'openid'")
 	public String openid;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment 'unionid'")
 	public String unionid;
 	

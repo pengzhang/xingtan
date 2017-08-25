@@ -11,7 +11,7 @@
 			        #{crud.search /}
 			    </div>
 			
-			     #{crud.table fields:['id', 'nickname', 'photo','username', 'email', 'openid', 'createDate','operation']}
+			     #{crud.table fields:['id', 'nickname', 'photo','birthdate', 'bodyheight', 'bodyweight', 'company', 'broker', 'createDate','operation']}
 			        #{crud.custom 'photo'}
 				        	<img src="${object.photo?object.photo:'/public/images/avatar.jpg'}" width="80" height="80">
 				     #{/crud.custom}

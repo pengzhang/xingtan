@@ -11,10 +11,7 @@
 			        #{crud.search /}
 			    </div>
 			
-			     #{crud.table fields:['id', 'nickname', 'avatar','username', 'email', 'openid', 'recommendId','userId','createDate','operation']}
-			        #{crud.custom 'avatar'}
-				        	<img src="${object.avatar?object.avatar:'/public/images/avatar.jpg'}" width="80" height="80">
-				     #{/crud.custom}
+			     #{crud.table fields:['id', 'realName', 'bankCode', 'bankName','recommendId', 'phone', 'idCode', 'userId','createDate','operation']}
 			         #{crud.custom 'createDate'}
 				        	${object.createDate.format('yyyy-MM-dd HH:mm:ss')}
 				     #{/crud.custom}

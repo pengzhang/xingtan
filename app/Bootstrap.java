@@ -1,15 +1,18 @@
+import models.AdminUser;
 import models.WechatKey;
 import play.cache.Cache;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
+import play.libs.Crypto;
 
 @OnApplicationStart
 public class Bootstrap extends Job {
-	
+
 	public void doJob(){
 		initWechatKeys();
+		initAdmin();
 	}
-	
+
 	/**
 	 * 初始化微信支付秘钥
 	 */
@@ -23,5 +26,15 @@ public class Bootstrap extends Job {
 			}
 		}
 	}
-	
+
+	/**
+	 * 初始化超级管理员	
+	 */
+	public static void initAdmin(){
+		AdminUser admin = AdminUser.find("username", "admin").first();
+		if(admin == null){
+			new AdminUser("admin", Crypto.passwordHash("admin")).save();
+		}
+	}
+
 }

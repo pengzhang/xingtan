@@ -52,6 +52,15 @@ crud.help.after=%s之后.
 crud.help.before=%s之前.
 crud.help.range=在%d到%d之间
 
+#secure
+secure.title=
+secure.username=用户名:
+secure.password=密码:
+secure.remember=记住我
+secure.signin=登录
+secure.error=用户名或密码错误.
+secure.logout=您已经成功退出.
+
 AdminAnchors=主播管理
 Anchor=主播
 

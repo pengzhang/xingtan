@@ -17,49 +17,64 @@ import play.data.validation.Password;
 @org.hibernate.annotations.Table(comment="经纪人管理", appliesTo = "broker")
 public class Broker extends BaseModel implements Serializable {
 
+	@Exclude
 	@Column(columnDefinition="varchar(100) comment '用户名'")
 	public String username;
 	
+	@Exclude
 	@Password
 	@Column(columnDefinition="varchar(100) comment '密码'")
 	public String password;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(100) comment '用户邮箱'")
 	public String email;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(30) comment '手机号'")
 	public String mobile;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(1000) comment '用户头像'")
 	public String avatar;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(1000) comment '用户照片'")
 	public String photo;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '昵称'")
 	public String nickname;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '性别'")
 	public String sex;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '省份'")
 	public String province;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '城市'")
 	public String city;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '国家'")
 	public String country;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment 'openid'")
 	public String openid;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment 'unionid'")
 	public String unionid;
 	
+	@Exclude
 	@Column(columnDefinition="varchar(255) comment '公司'")
 	public String company;
 	
+	@Exclude
 	@Column(columnDefinition="tinyint default 0 comment '状态:0-未激活,1-已激活'")
 	public boolean active = false;
 	
