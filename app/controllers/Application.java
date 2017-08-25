@@ -54,10 +54,6 @@ public class Application extends Controller {
 		Anchor anchor = Anchor.findById(aid);
 		Logger.info("anchor json: %s", Json.toJson(anchor));
 		
-		if(anchor == null) {
-			redirect("/xingcard");
-		}
-		
 		OrderItem item = new OrderItem();
 		item.order_id = order.id;
 		item.quantity = cardnum;
@@ -66,7 +62,8 @@ public class Application extends Controller {
 		item.product_image = anchor.photo;
 		item.product_total = cardnum * 100;
 		item.save();
-		redirect("/my/xingcard");
+		renderText("ok");
+//		redirect("/my/xingcard");
 	}
 	
 	@Get("/my/xingcard")

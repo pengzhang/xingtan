@@ -52,8 +52,13 @@
 		$(".pay").click(function(){
 			var aid = $('#aid').val();
 			var cardnum = $('#cardnum').val();
-			$('.box').attr('action','/xingcard/buy?aid='+aid+'&cardnum='+cardnum);
-			$('.box').submit();
+			$.ajax({
+				url:'/xingcard/buy?aid='+aid+'&cardnum='+cardnum,
+				type:'get',
+				success: function(){
+					window.location.href="/my/xingcard";
+				}
+			})
 		})
 	})
 </script>
