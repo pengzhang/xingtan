@@ -8,7 +8,7 @@ import play.mvc.With;
 
 @Login
 @For(Anchor.class)
-@With(ActionIntercepter.class)
+@With(AdminActionIntercepter.class)
 public class AdminAnchors extends CRUD {
 
 	@Before

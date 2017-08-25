@@ -8,7 +8,7 @@ import play.mvc.With;
 
 @Login
 @For(Broker.class)
-@With(ActionIntercepter.class)
+@With(AdminActionIntercepter.class)
 public class AdminBrokers extends CRUD {
 
 	@Before

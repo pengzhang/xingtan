@@ -21,7 +21,7 @@ import play.mvc.With;
 
 @Login
 @For(WechatKey.class)
-@With(ActionIntercepter.class)
+@With(AdminActionIntercepter.class)
 public class AdminWechatKeys extends CRUD {
 	
 	@Before

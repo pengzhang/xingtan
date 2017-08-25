@@ -90,6 +90,9 @@ public class Anchor extends BaseModel implements Serializable {
 	@Column(columnDefinition="bigint default 0 comment '经纪人ID'")
 	public long b_id;
 	
+	@Column(columnDefinition="tinyint default 0 comment '星卡'")
+	public boolean xingcard;
+	
 	public Anchor() {
 		super();
 	}

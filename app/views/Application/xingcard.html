@@ -14,15 +14,42 @@
 				<p class="muted">${anchor.bodyheight?'身高'+anchor.bodyheight+'cm':''}  ${anchor.bodyweight?'体重'+anchor.bodyweight+'KG':''}</p>
 				<p class="muted">${anchor.hobby}</p>
 				<p class="muted">${anchor.address}</p>
-				<button type="button" class="btn success pull-right" style="margin: 0.2rem ; width: 3rem;">购买</button>
+				<button type="button" class="btn success pull-right buy" style="margin: 0.2rem ; width: 3rem;"  data-display data-backdrop="true" data-target="#buycard" data="${anchor.id}" data-placement="bottom">购买</button>
 			</div>
 		</div>
 	</div>
 </div>
-
+<div id="buycard" class="affix dock-bottom modal hidden">
+  <div class="heading">
+    <div class="title"><strong>填写数量</strong></div>
+    <nav class="nav"><a data-dismiss="display"><i class="icon-remove muted"></i></a></nav>
+  </div>
+  <div class="content article box">
+   	  <form class="box" action="/xingcard/buy">
+   	  		<div class="control">
+   	  			<input id="aid" type="hidden" name="aid">
+   	  			<input id="cardnum" type="text" name="cardnum" style="width:5rem" value="1">
+   	  			<div class="pull-right">
+	   	  			<span><strong>总价:</strong>300元</span>
+   	  			</div>
+   	  			<button class="btn info block" style="margin-top:0.5rem">支付</button>
+   	  		</div>
+   	  </form>
+  </div>
+</div>
 		
 #{/list}
 
 #{include './xc_footer.html' /}
 
+#{set 'moreScripts'}
+<script>
+	$(function(){
+		$(".buy").click(function(){
+			var aid = $(this).attr('data');
+			$('#aid').val(aid);
+		})
+	})
+</script>
+#{/set}
 

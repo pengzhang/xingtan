@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -12,12 +13,16 @@ import com.google.gson.JsonElement;
 import models.Anchor;
 import models.Broker;
 import models.LangMa;
+import models.Order;
+import models.OrderItem;
 import play.Logger;
+import play.db.jpa.JPA;
 import play.libs.Codec;
 import play.libs.WS;
 import play.mvc.Controller;
 import play.mvc.With;
 import plugins.hcommon.router.Get;
+import utils.Json;
 
 @With(ActionIntercepter.class)
 public class Application extends Controller {
@@ -32,8 +37,43 @@ public class Application extends Controller {
 	
 	@Get("/xingcard")
 	public static void xingcard(){
-		List<Anchor> anchors = Anchor.find("order by createDate desc").fetch();
+		List<Anchor> anchors = Anchor.find("xingcard=? order by createDate desc", true).fetch();
         render(anchors);
+	}
+	
+	@Get("/xingcard/buy")
+	public static void buy_xingcard(long aid, int cardnum){
+		Logger.info("aid:%s, cardnum:%s", aid, cardnum);
+		//下订单
+		long uid = Long.parseLong(session.get("uid"));
+		String openid = session.get("openid");
+		Order order = new Order(new Date(), openid);
+		order.user_id = uid;
+		order.save();
+		
+		Anchor anchor = Anchor.findById(aid);
+		Logger.info("anchor json: %s", Json.toJson(anchor));
+		
+		if(anchor == null) {
+			redirect("/xingcard");
+		}
+		
+		OrderItem item = new OrderItem();
+		item.order_id = order.id;
+		item.quantity = cardnum;
+		item.product_id = aid;
+		item.product_name = anchor.nickname;
+		item.product_image = anchor.photo;
+		item.product_total = cardnum * 100;
+		item.save();
+		redirect("/my/xingcard");
+	}
+	
+	@Get("/my/xingcard")
+	public static void my_xingcard(){
+		long uid = Long.parseLong(session.get("uid"));
+		List<OrderItem> items = JPA.em().createQuery("select * from order_item item right join order_pay pay on pay.id = item.order_id where pay.user_id=:uid", OrderItem.class).setParameter("uid", uid).getResultList();
+        render(items);
 	}
 	
 	@Get("/my_anchor")

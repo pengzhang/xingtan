@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'收入' /} 
+
+
+#{include './xc_header.html' /}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>头像</th>
+      <th>昵称</th>
+      <th>数量</th>
+      <th>总价</th>
+      <th>购买日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div class="avatar circle"><img src="http://zui.sexy/m/doc/img/avatar.png" alt=""></div></td>
+      <td>小马虎</td>
+      <td>1056</td>
+      <td>1056</td>
+      <td>2017-05-25</td>
+    </tr>
+  </tbody>
+</table>
+
+#{include './xc_footer.html' /}
+
+#{set 'moreStyles'}
+<style>
+.profile-haeder {position: relative; overflow: hidden; min-height: 8rem}
+.profile-haeder > .back {top: -2rem; left: -2rem; right: -2rem; bottom: -2rem; background-position: center; background-size: cover}
+.profile-haeder > .front {background: rgba(0,0,0,.1); text-align: center; padding: 1.5rem}
+</style>
+#{/set}
