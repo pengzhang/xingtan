@@ -58,9 +58,9 @@ public class ActionIntercepter extends Controller {
 
 			}
 		} 
-//		else {
-//			renderText("请用微信访问");
-//		}
+		else {
+			renderText("请用微信访问");
+		}
 	}
 
 	@After
