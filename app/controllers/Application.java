@@ -60,9 +60,9 @@ public class Application extends Controller {
 		item.product_id = aid;
 		item.product_name = anchor.nickname;
 		item.product_image = anchor.photo;
-		item.product_total = cardnum * 100;
+		item.product_total = cardnum * 20;
 		item.save();
-		renderText("ok");
+		renderJSON("{\"status\":true}");
 //		redirect("/my/xingcard");
 	}
 	
