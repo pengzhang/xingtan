@@ -14,7 +14,7 @@
 				<p class="muted">${anchor.bodyheight?'身高'+anchor.bodyheight+'cm':''}  ${anchor.bodyweight?'体重'+anchor.bodyweight+'KG':''}</p>
 				<p class="muted">${anchor.hobby}</p>
 				<p class="muted">${anchor.address}</p>
-				<button type="button" class="btn success pull-right buy" style="margin: 0.2rem ; width: 3rem;"  data-display data-backdrop="true" data-target="#buycard" data="${anchor.id}" data-placement="bottom">购买</button>
+				<button type="button" class="btn success pull-right buy" style="margin: 0.2rem ; width: 3rem;"  data-display data-backdrop="true" data-target="#buycard" data-id="${anchor.id}" data-placement="bottom">购买</button>
 			</div>
 		</div>
 	</div>
@@ -44,10 +44,11 @@
 <script>
 	$(function(){
 		$(".buy").click(function(){
-			var aid = $(this).attr('data');
+			//var aid = $(this).attr('data');
+			var aid = $(this).data('id');
 			$('#aid').val(aid);
 		})
-		$(".cardnum").change(function(){
+		$("#cardnum").change(function(){
 			var cardnum = $('#cardnum').val();
 			$("#price").html(parseInt(cardnum)*20);
 		})
@@ -58,10 +59,10 @@
 				url:'/xingcard/buy?aid='+aid+'&cardnum='+cardnum,
 				type:'get',
 				success: function(){
-					location.href="/my/xingcard";
+					window.location.href="/my/xingcard?v="+Math.random();
 				},
 				error:function(){
-					location.href="/xingcard";
+					location.href="/xingcard?v="+Math.random();
 				}
 			})
 		})

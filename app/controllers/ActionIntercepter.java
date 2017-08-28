@@ -59,6 +59,7 @@ public class ActionIntercepter extends Controller {
 			}
 		} 
 		else {
+//			session.put("uid", 1);
 			renderText("请用微信访问");
 		}
 	}
